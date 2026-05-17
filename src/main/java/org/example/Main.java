@@ -1,19 +1,45 @@
 package org.example;
 
+import org.example.Validator.MoneyInputValidator;
+import org.example.Validator.OptionValidator;
+
 import static org.example.IO.*;
 
 public class Main {
     static void main() {
-        String userChoice = PrintIntro();
-        if(userChoice.equals("3")){
-            PrintQuit();
-        }else{
-            progress(userChoice);
-        }
+        PrintIntro();
+        String userChoice ="";
+         while(userChoice.isBlank()){
+             try{
+                 userChoice= GetOption();
+                 new OptionValidator(userChoice);
+                 if(!userChoice.equals("3")){
+                     progress(userChoice);
+                 }
+             } catch (Exception e) {
+                PrintErrorMsg(e.getMessage());
+                 userChoice ="";
+             }
+         }
+        PrintQuit();
     }
 
     static void progress(String userChoice){
-        int userMoney = Integer.parseInt(GetMoney());
+        String userMoney ="";
+        while(userMoney.isBlank()){
+            try {
+                userMoney = GetMoney();
+                new MoneyInputValidator(userMoney);
+            }catch (Exception e){
+                PrintErrorMsg(e.getMessage());
+                userMoney = "";
+            }
+        }
+
+        startGame(userChoice, Integer.parseInt(userMoney));
+    }
+
+    static void startGame (String userChoice, int userMoney){
         switch (userChoice){
             case "1" :
                 spitoGame(userMoney);
@@ -33,7 +59,7 @@ public class Main {
         spito.makeResultMsg();
     }
 
-    static  void lotteryGame (int userMoney){
+    static void lotteryGame (int userMoney){
         Lottery lottery = new Lottery(userMoney);
         lottery.draw();
         lottery.match();

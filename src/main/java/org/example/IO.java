@@ -4,11 +4,12 @@ import java.util.Scanner;
 public class IO {
     static Scanner sc = new Scanner(System.in);
 
-    static String PrintIntro() {
+    static void PrintIntro() {
         System.out.println("----- <<KTB 로또 키오스크>> -----");
-        System.out.println("안녕하십니까. 어떤 기능을 사용하시겠습니까?");
-        System.out.print("1.스피또 발행\n2.로또(자동) 발행\n3.종료\n");
-        return GetOption();
+    }
+
+    static void PrintErrorMsg(String msg){
+        System.out.println(msg + "\n============================");
     }
 
     static void PrintResult(String result){
@@ -16,6 +17,8 @@ public class IO {
     }
 
     static String GetOption() {
+        System.out.println("안녕하십니까. 어떤 기능을 사용하시겠습니까?");
+        System.out.print("1.스피또 발행\n2.로또(자동) 발행\n3.종료\n");
         System.out.print(">>> ");
         return sc.next();
     }

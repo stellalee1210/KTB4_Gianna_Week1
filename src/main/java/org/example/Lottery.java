@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.example.IO.PrintResult;
 
-public class Lottery extends Gamble{
+public class Lottery extends Gamble {
     protected ArrayList<ArrayList<Integer>> gameList = new ArrayList<>();
     protected ArrayList<Integer> winningNumbers = new ArrayList<>();
     protected int[] matchCount;
@@ -110,6 +110,6 @@ public class Lottery extends Gamble{
             totalPrize += result[i] * (5000 * (int)Math.pow(5000,i));
         }
         sb.append(String.format("\n총 상금은 %d원 입니다.", totalPrize));
-        return sb;
+           return sb;
     }
 }
