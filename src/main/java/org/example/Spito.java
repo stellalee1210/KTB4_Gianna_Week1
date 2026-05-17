@@ -18,7 +18,7 @@ public class Spito extends Lottery{
         StringBuilder sb = new StringBuilder("\n   <<뽑은 내역>>\n");
         for(int i =0; i<this.gameList.size(); i++){
             String endWord = "\n";
-            if(this.result.contains(i)) endWord = " - O\n";
+            if(this.result.contains(i)) endWord = " - V\n";
             sb.append(this.gameList.get(i) + endWord);
         }
         sb.append("\n<<각 게임의 당첨 번호>>\n" + this.winningNumbers);
