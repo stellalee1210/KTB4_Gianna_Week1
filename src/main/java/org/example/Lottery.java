@@ -104,12 +104,12 @@ public class Lottery extends Gamble{
 
     private StringBuilder makePrizeMsg(int[] result){
         StringBuilder sb = new StringBuilder();
-        double totalPrize = 0;
+        int totalPrize = 0;
         for(int i =0; i<result.length; i++){
             sb.append( String.format("%d개 일치한 개수 : %d 개\n", i+3, result[i] ));
             totalPrize += result[i] * (5000 * Math.pow(5000,i));
         }
-        sb.append(String.format("\n총 상금은 %f원 입니다.", totalPrize));
+        sb.append(String.format("\n총 상금은 %d원 입니다.", totalPrize));
         return sb;
     }
 }

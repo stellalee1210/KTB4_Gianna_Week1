@@ -19,9 +19,11 @@ public class Spito extends Lottery{
         for(int i =0; i<this.gameList.size(); i++){
             String endWord = "\n";
             if(this.result.contains(i)) endWord = " - V\n";
-            sb.append(this.gameList.get(i) + endWord);
+            String gamelist = this.gameList.get(i).toString() +  endWord;
+            sb.append(gamelist);
         }
-        sb.append("\n<<각 게임의 당첨 번호>>\n" + this.winningNumbers);
+        String winningNums = String.format("\n<<각 게임의 당첨 번호>>\n %s", this.winningNumbers.toString());
+        sb.append(winningNums);
         PrintResult(sb.toString());
         this.sumPrize();
     }
