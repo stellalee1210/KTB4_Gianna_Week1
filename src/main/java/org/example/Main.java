@@ -14,23 +14,30 @@ public class Main {
 
     static void progress(String userChoice){
         int userMoney = Integer.parseInt(GetMoney());
-
         switch (userChoice){
             case "1" :
-                Spito spito = new Spito(userMoney);
-                spito.make();
-                spito.match();
-                spito.makeResultMsg();
+                spitoGame(userMoney);
                 break;
             case "2":
-                Lottery lottery = new Lottery(userMoney);
-                lottery.draw();
-                lottery.match();
-                lottery.makeResultMsg();
+                lotteryGame(userMoney);
                 break;
             default:
                 PrintQuit();
         }
+    }
+
+    static void spitoGame (int userMoney){
+        Spito spito = new Spito(userMoney);
+        spito.make();
+        spito.match();
+        spito.makeResultMsg();
+    }
+
+    static  void lotteryGame (int userMoney){
+        Lottery lottery = new Lottery(userMoney);
+        lottery.draw();
+        lottery.match();
+        lottery.makeResultMsg();
     }
 }
 
