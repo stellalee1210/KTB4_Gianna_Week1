@@ -23,7 +23,6 @@ public class OptionValidator implements Validator{
     @Override
     public boolean isUnderRange(String input) {
         int inputAsNum = Integer.parseInt(input);
-        if((inputAsNum != 1 && inputAsNum != 2 && inputAsNum != 3)) return false;
-        return true;
+        return inputAsNum == 1 || inputAsNum == 2 || inputAsNum == 3;
     }
 }

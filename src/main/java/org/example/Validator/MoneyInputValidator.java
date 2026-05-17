@@ -23,7 +23,6 @@ public class MoneyInputValidator implements Validator{
     public boolean isUnderRange(String input) {
         int inputAsNum = Integer.parseInt(input);
 
-        if(inputAsNum % 1000 != 0) return false;
-        return true;
+        return inputAsNum % 1000 == 0;
     }
 }
